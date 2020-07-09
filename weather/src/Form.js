@@ -9,10 +9,14 @@ class Form extends React.Component {
     }
 
     updateInputValue = (e) => this.setState({ inputValue: e.target.value });
+    submitForm = (e) => {
+        e.preventDefault();
+        this.props.onSubmit(this.state.inputValue);
+    };
 
     render() {
         return (
-            <form className='city-form'>
+            <form className='city-form' onSubmit={this.submitForm}>
                 <input
                     type='text'
                     placeholder='Search by city'
