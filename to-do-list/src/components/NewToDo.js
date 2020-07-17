@@ -17,7 +17,7 @@ class NewToDo extends React.Component {
         this.props.dispatch(
             toDoActions.createToDoItem({
                 title: this.state.toDoTitle,
-                isCompleted: true,
+                isCompleted: false,
                 id: Math.round(Math.random() * 10000),
             })
         );
@@ -33,6 +33,7 @@ class NewToDo extends React.Component {
                         <input
                             type='text'
                             placeholder='Type here what to do'
+                            required
                             className='form-control'
                             value={this.state.toDoTitle}
                             onChange={this.onChangeHandler}

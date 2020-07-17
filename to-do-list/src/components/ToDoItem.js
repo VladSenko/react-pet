@@ -1,7 +1,16 @@
 import React from 'react';
 
-const ToDoItem = ({ title, isCompleted }) => {
+const ToDoItem = ({ id, title, isCompleted, onUpdatedToDoItem }) => {
     const buttonClass = isCompleted ? 'btn-danger' : 'btn-success';
+
+    const onClickHandler = () => {
+        onUpdatedToDoItem({
+            id,
+            title,
+            isCompleted: !isCompleted,
+        });
+    };
+
     return (
         <li
             style={{
@@ -26,6 +35,7 @@ const ToDoItem = ({ title, isCompleted }) => {
                 type='button'
                 className={`btn ${buttonClass}`}
                 style={{ width: '120px' }}
+                onClick={onClickHandler}
             >
                 {isCompleted ? 'Uncomplete' : 'Complete'}
             </button>
