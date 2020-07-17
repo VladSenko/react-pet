@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as toDoActions from './../redux/actions/toDoActions';
+import PropTypes from 'prop-types';
 
 class NewToDo extends React.Component {
     state = {
@@ -11,7 +14,13 @@ class NewToDo extends React.Component {
 
     onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(this.state.toDoTitle);
+        this.props.dispatch(
+            toDoActions.createToDoItem({
+                title: this.state.toDoTitle,
+                isCompleted: true,
+                id: Math.round(Math.random() * 10000),
+            })
+        );
         this.setState({ toDoTitle: '' });
     };
 
@@ -40,4 +49,12 @@ class NewToDo extends React.Component {
     }
 }
 
-export default NewToDo;
+NewToDo.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+};
+
+function mapToStateProps(state, ownProps) {
+    return {};
+}
+
+export default connect(mapToStateProps)(NewToDo);

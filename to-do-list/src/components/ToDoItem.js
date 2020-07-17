@@ -3,11 +3,13 @@ import React from 'react';
 const ToDoItem = ({ title, isCompleted }) => {
     const buttonClass = isCompleted ? 'btn-danger' : 'btn-success';
     return (
-        <div
+        <li
             style={{
                 display: 'flex',
+                marginBottom: '10px',
                 padding: '15px',
                 border: '1px solid #ccc',
+                borderRadius: '4px',
                 alignItems: 'center',
                 justifyContent: 'space-between',
             }}
@@ -27,7 +29,7 @@ const ToDoItem = ({ title, isCompleted }) => {
             >
                 {isCompleted ? 'Uncomplete' : 'Complete'}
             </button>
-        </div>
+        </li>
     );
 };
 

@@ -7,7 +7,7 @@ import NewToDo from './NewToDo';
 const NavBar = (props) => {
     return (
         <Router>
-            <ul className='nav'>
+            <ul className='nav col-sm-8 offset-sm-2'>
                 <li className='nav-item'>
                     <Link to='/' className='nav-link'>
                         Home
