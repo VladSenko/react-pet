@@ -17,7 +17,8 @@ class NewToDo extends React.Component {
 
     render() {
         return (
-            <div className='col-sm-6 offset-sm-3'>
+            <div className='col-sm-8 offset-sm-2'>
+                <h1>Create new To Do Item</h1>
                 <form onSubmit={this.onSubmitHandler}>
                     <div className='form-group'>
                         <input
